@@ -17,34 +17,34 @@ public:
 	CircularInt( const CircularInt& );/*declaration for copy constructor*/
 	~CircularInt();/*destructor*/
 	
-    /*-----Add-----*/
+             /*-----Add-----*/
 	CircularInt operator+( int);
 	CircularInt operator+(const CircularInt&);
 	CircularInt& operator+=(int);
 	CircularInt&  operator++();
 	CircularInt  operator++(int);
 
-	  /*-----Sub-----*/
+	     /*-----Sub-----*/
   friend CircularInt operator-(const CircularInt& );
 	friend CircularInt operator-( const int, const CircularInt&);
 	CircularInt operator--();
 	CircularInt& operator-=(int);
 
-    /*-----Mult-----*/
+             /*-----Mult-----*/
 	CircularInt &operator*=(const int);
 	friend CircularInt operator * (int, CircularInt const &);
 	
-	  /*-----Div-----*/
+	     /*-----Div-----*/
 	friend CircularInt operator/(const CircularInt&, const int );
 	friend CircularInt operator / (CircularInt const &, CircularInt const &);
 	friend CircularInt operator / (int , CircularInt const &);
-  CircularInt operator/=(const int);
+        CircularInt operator/=(const int);
 		
-		/*-----Stream-----*/
+             /*-----Stream-----*/
 	friend ostream& operator<<(ostream&, const CircularInt);
 	friend istream& operator >> (istream & ,CircularInt &);
 	
-	  /*-----Comp-----*/
+	     /*-----Comp-----*/
 	CircularInt operator==(int);
 	friend bool operator == (int const, CircularInt const &);
 	friend bool operator != (int const, CircularInt const &);
