@@ -177,11 +177,12 @@ ostream & operator<<(ostream & o, const CircularInt time){
 	o << time.current;
 	return o;
 }
+/*
 istream& operator >> (istream & is, CircularInt& circ){
 		cin >> circ.min >> circ.max;
 		circ.current = circ.min;
-	return;
 	}
+	*/
 	
 	
 
