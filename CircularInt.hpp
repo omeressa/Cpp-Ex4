@@ -42,7 +42,7 @@ public:
 		
              /*-----Stream-----*/
 	friend ostream& operator<<(ostream&, const CircularInt);
-	friend istream& operator >> (istream & ,CircularInt &);
+	//friend istream& operator >> (istream & ,CircularInt &);
 	
 	     /*-----Comp-----*/
 	CircularInt operator==(int);
