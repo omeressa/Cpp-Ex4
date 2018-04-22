@@ -180,6 +180,7 @@ ostream & operator<<(ostream & o, const CircularInt time){
 istream& operator >> (istream & is, CircularInt& circ){
 		cin >> circ.min >> circ.max;
 		circ.current = circ.min;
+	return;
 	}
 	
 	
