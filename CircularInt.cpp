@@ -3,7 +3,7 @@
 #include "CircularInt.hpp"
 
 
-CircularInt::CircularInt(int min, int max){
+CircularInt::CircularInt(int min, int max){/////// banai mathel
 	this->min = min;
 	this->max = max;
 	this->current = min;
@@ -11,6 +11,10 @@ CircularInt::CircularInt(int min, int max){
 
 /*---Copy constructor---*/
 CircularInt::CircularInt(const CircularInt& other) :min(other.min), max(other.max), current(other.current){}
+/* this->max = other->max
+* this->min = other->min
+*this->current = other->current
+*/
 
 /*---distructor---*/
 CircularInt::~CircularInt(){}
@@ -30,7 +34,7 @@ CircularInt CircularInt::operator+(const CircularInt& other){
 		temp.current = (temp.current) % (max);
 	return temp;
 }
-CircularInt& CircularInt::operator+=(int num){
+CircularInt& CircularInt::operator+=(int num){///////////////////////////
 
 	num %= (max - min + 1);
 	if (current + num > max) {
@@ -39,28 +43,28 @@ CircularInt& CircularInt::operator+=(int num){
 	else {
 		this->current += num;
 	}
-	return(*this);
+	return(*this); // return the current number 
 }
-CircularInt & CircularInt::operator++(){
+CircularInt & CircularInt::operator++(){////////////////////////
 	this->current += 1;
 	return (*this);
 }
 
-CircularInt CircularInt::operator++(int ){
+CircularInt CircularInt::operator++(int ){//////////////////////
 	CircularInt temp(*this);
 	++(*this);
 	return *this;
 }
 
 /*-----Sub operators-----*/
-	CircularInt operator-( const int sub, CircularInt const & obj){
+CircularInt operator-( const int sub, CircularInt const & obj){/////////////////// num - CirculInt
 	CircularInt temp(obj);
 	 temp.current=sub -temp.current  ;
 	 while(temp.current<temp.min)
 		 temp.current+=12;
 	return temp;
 }
-CircularInt operator-(const CircularInt& other ){
+CircularInt operator-(const CircularInt& other ){///////////////////////////////  - CirculInt  (hour )
  	CircularInt temp(other);
 	temp.current = (temp.max - temp.current);
 	return temp;
@@ -92,7 +96,7 @@ CircularInt& CircularInt::operator-=(int num){
 }
 
   /*-----Mult operators-----*/
-CircularInt& CircularInt::operator*=(const int num){
+CircularInt& CircularInt::operator*=(const int num){//////////////////////////////// 
 		this->current = current*num % (max - min + 1);
 		return *this;
 }
@@ -109,11 +113,21 @@ CircularInt operator * (int num, CircularInt const & obj){
 }
 
  /*-----Div operators-----*/
- CircularInt operator/(const CircularInt& other, const int num){
+ CircularInt operator/(const CircularInt& other, const int num){//////////////////////////////////// CirculInt / num
 	CircularInt temp(other);
-	temp /= num;
-	return temp;
+	 	int ans = temp->current%num;
+
+	if (ans != 0)
+		throw string("There is no number x in {1,12} such that x*" + to_string(num) + "=" + to_string(temp->current));
+	else{
+		temp->current = temp->current / num;
 }
+	 	return temp;
+}
+
+
+
+
 CircularInt CircularInt::operator/=(const int num){
 
 	int temp = current%num;
